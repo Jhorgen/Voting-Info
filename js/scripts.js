@@ -1,18 +1,17 @@
 $(document).ready(function() {
-  console.log('jquery is enabled')
 
   $("form.age").submit(function(event) {
-    console.log("works!");
     event.preventDefault();
-    var age = $("#age").val();
-    console.log(age);
-    if (age === true) {
+    var age = $(".form-control").val();
+    if (age === "18, or older") {
+      $(".minor").hide();
       $(".voter").show();
-    } else if (age === false) {
+    } else if(age === "Under 18") {
+      $(".voter").hide();
       $(".minor").show();
-  }
-      console.log('.minor');
-
-    });
+    }  else {
+      $(".voter").hide();
+      $(".minor").hide();
+    }
   });
-;
+  });
